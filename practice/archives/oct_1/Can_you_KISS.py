@@ -1,0 +1,1 @@
+print(sum((i^i+1)>>j&1for i in range(int(input()))for j in range(32)))
