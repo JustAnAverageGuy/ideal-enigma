@@ -8,9 +8,9 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# C. Make Equal With Mod
+# 2000, 256
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/problemset/problem/1656/C
+# Saturday 03 February 2024 12:24:05 +0530
 #
