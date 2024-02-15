@@ -1,15 +1,10 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
-
-
-
-
+a,b = map(int,input().strip().split())
+mn,mx = 10*b, 10*b+9 
+# from math import ceil 
+mn = max(mn, (25*a+1)//2)
+mx = min(mx, int(12.5*a+12.5)-1)
+if mx < mn: print(-1)
+else: print(mn)
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
@@ -19,9 +14,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
+# C - Tax Increase
 # 2000, 1024
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc158/tasks/abc158_c
+# Thursday 15 February 2024 03:26:29 +0530
 #

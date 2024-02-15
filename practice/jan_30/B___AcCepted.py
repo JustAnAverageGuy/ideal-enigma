@@ -1,14 +1,9 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
-
-
-
+s = input()
+hmm = True
+hmm &= s[0]=='A'
+hmm &= all(i.islower() | (i=='C') for i in s[1:])
+hmm &= s.count("C", 2,-1) == 1
+print(["WA","AC"][hmm])
 
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -19,9 +14,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
+# B - AcCepted
 # 2000, 1024
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc104/tasks/abc104_b
+# Thursday 15 February 2024 03:16:30 +0530
 #

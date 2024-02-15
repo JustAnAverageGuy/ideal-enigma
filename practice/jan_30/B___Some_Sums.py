@@ -1,15 +1,6 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
-
-
-
-
+n,a,b = map(int,input().strip().split())
+def s(d): return sum(int(i) for i in str(d))
+print(sum(i for i in range(1,n+1) if a<=s(i)<=b ))
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
@@ -19,9 +10,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
-# 2000, 1024
+# B - Some Sums
+# 2000, 256
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc083/tasks/abc083_b
+# Thursday 15 February 2024 03:52:12 +0530
 #

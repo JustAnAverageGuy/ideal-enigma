@@ -1,15 +1,6 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
-
-
-
-
+a = [int(input()) for i in range(5)]
+a.sort(key=lambda x: (-x%10))
+print(sum(((i+9)//10)*10 for i in a[:-1]) + a[-1])
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
@@ -19,9 +10,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
+# B - Five Dishes
 # 2000, 1024
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc123/tasks/abc123_b
+# Thursday 15 February 2024 04:10:02 +0530
 #

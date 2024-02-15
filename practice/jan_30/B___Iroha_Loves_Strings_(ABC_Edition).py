@@ -1,15 +1,7 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
-
-
-
-
+n,l = map(int,input().strip().split())
+s = [input() for i in range(n)]
+s.sort()
+print(*s,sep='')
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
@@ -19,9 +11,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
-# 2000, 1024
+# B - Iroha Loves Strings (ABC Edition)
+# 2000, 256
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc042/tasks/abc042_b
+# Thursday 15 February 2024 02:09:36 +0530
 #

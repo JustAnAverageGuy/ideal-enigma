@@ -1,14 +1,17 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
+n,d = map(int,input().strip().split())
+points = [ tuple(map(int,input().strip().split())) for  i in range(n)]
+from math import isqrt 
+def dist(a,b):
+    k = sum((i-j)**2 for i,j in zip(a,b))
+    s = isqrt(k)
+    return s*s == k
 
+s = 0
+for i in range(n):
+    for j in range(i+1,n):
+        s += dist(points[i], points[j])
 
-
+print(s)
 
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -19,9 +22,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
+# B - Good Distance
 # 2000, 1024
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc133/tasks/abc133_b
+# Thursday 15 February 2024 03:36:44 +0530
 #

@@ -1,12 +1,14 @@
 n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
-
+A = [0,*(int(input()) for _ in range(n))]
+visited=set()
+curr = 1
+cnt = 0
+while curr != 2:
+    if curr in visited: print(-1); exit()
+    visited.add(curr)
+    cnt += 1
+    curr = A[curr]
+print(cnt)
 
 
 
@@ -19,9 +21,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
-# 2000, 1024
+# B - Trained?
+# 2000, 256
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc065/tasks/abc065_b
+# Thursday 15 February 2024 04:19:08 +0530
 #

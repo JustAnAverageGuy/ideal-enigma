@@ -1,13 +1,15 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
+s = input()
+n = len(s) + 1
+A = [None]*(n)
+grower_indices = set()
+if s[0] == '<': grower_indices.add(0)
+if s[-1] == '>': grower_indices.add(n-1)
+for i in range(n-2):
+    if s[i:i+2] == "><": grower_indices.add(i+1)
 
-
+def grow(indx):
+    l = indx - 1
+    r = indx + 1
 
 
 
@@ -19,9 +21,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
+# A - ><
 # 2000, 1024
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/agc040/tasks/agc040_a?lang=en
+# Thursday 15 February 2024 04:42:02 +0530
 #

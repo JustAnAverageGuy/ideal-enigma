@@ -1,13 +1,25 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
-    
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
+def hash(s:str):
+    p = 27
+    i = 1
+    sm = 0
+    for c in s:
+        sm += i*(ord(c) - ord('a') + 1)
+        i *= p
+    return sm
+s = input()
+hss = hash(s)
 
+t = input()
+hst = hash(t)
 
+if hst == hss: print("Yes"); exit()
+n = len(t)
+
+pw = pow(27,n-1)
+for rot in range(1,n):
+    hst = (hst//27) + (hst%27)*pw
+    if hss == hst: print("Yes"); exit()
+print("No")
 
 
 
@@ -19,9 +31,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
+# B - String Rotation
 # 2000, 1024
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://atcoder.jp/contests/abc103/tasks/abc103_b
+# Thursday 15 February 2024 03:05:32 +0530
 #

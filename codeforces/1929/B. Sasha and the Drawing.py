@@ -1,15 +1,25 @@
-n = int(input())
-A = list(map(int,input().strip().split()))
+import sys;input=sys.stdin.readline
+
+def solve():
+    n,k = map(int,input().strip().split())
+    if k <= 2*n:
+        print((k+1)//2)
+        return
+    if k <= 4*n:
+        ans = n
+        k -= 2*n
+        if k <= 2*(n-2):
+            ans += (k+1)//2
+            k -= 2*((k+1)//2)
+        else:
+            if k == 2*n - 3:
+                ans += (k+1)//2 
+            else:
+                ans += (k+1)//2 + 1
+        print(ans)
     
-for i in range(n-1,0,-1):
-    if A[i-1] - A[i] > 1: print("No"); exit()
-    else:
-        if A[i-1] - A[i] == 1: A[i-1] -= 1
-print("Yes")
 
-
-
-
+for _ in range(int(input())): solve()
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
@@ -19,9 +29,9 @@ print("Yes")
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# C - Build Stairs
-# 2000, 1024
+# B. Sasha and the Drawing
+# 1000, 256
 #
-# https://atcoder.jp/contests/abc136/tasks/abc136_c
-# Tuesday 13 February 2024 17:51:02 +0530
+# https://codeforces.com/contest/1929/problem/B
+# Thursday 15 February 2024 20:07:08 +0530
 #
