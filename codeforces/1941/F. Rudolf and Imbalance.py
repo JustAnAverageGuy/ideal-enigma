@@ -2,7 +2,7 @@ from io import BytesIO, IOBase
 import os
 import sys
 
-BUFSIZE = 64
+BUFSIZE = 8192//4
 
 
 class FastIO(IOBase):
@@ -54,67 +54,30 @@ def input(): return sys.stdin.readline().rstrip('\r\n')
 
 
 
-from collections import defaultdict
 
 def solve():
-    n,q = map(int,input().strip().split())
-    tree = defaultdict(list)
-    for i in range(n-1): # O(n)
-        u,v = map(int,input().strip().split())
-        tree[u].append(v)
-        tree[v].append(u)
-    children = defaultdict(list)
-    depths = [-1]*(n+1) # O(n)
-    depths[1] = 0
-    dfs = [(1,0)]
+    n,m,k = map(int,input().strip().split())
+    A = list(map(int,input().strip().split()))
+    D = list(map(int,input().strip().split()))
+    F = list(map(int,input().strip().split()))
 
-    state = [0]*(n+1)
+    # calculate imbalance
+    max_diffs = 0
+    bounds = []
+    for i,j in zip(A, A[1:]):
+        if j-i == max_diffs:
+            bounds.append((i,j))
+        elif j - i > max_diffs:
+            bounds = [(i,j)]
+            max_diffs = j - i
+    if len(bounds) > 1:
+        print(max_diffs)
+        return
+    bounds = bounds[0]
     
-    while dfs:
-        node, parent = dfs.pop()
-        depths[node] = depths[parent] + 1
-
-        for i in tree[node]:
-            if i != parent:
-                children[node].append(i)
-                dfs.append((i, node))
-    # print(f'{children = }\n{depths = }\n{depthwise_wrt_root = }', file=sys.stderr)
-
-    sum_depths = defaultdict(int) 
-    for nodes in range(2,n+1): sum_depths[depths[nodes]] += state[nodes]
-    root_count = sum(i == 1 for i in sum_depths.values())
-
-    for _ in range(q):
-        t, node = map(int,input().strip().split())
-        if t == 2:
-            old = sum_depths[depths[node]]    
-            if state[node]:
-                # originally was 1, now will be off 
-                if old == 1: root_count -= 1
-                elif old == 2: root_count += 1
-
-            else:
-                # was 0, will be 1 now
-                if old == 0: root_count += 1
-                elif old == 1: root_count -= 1
-
-            sum_depths[depths[node]] += (1 - 2*state[node])
-            state[node] = 1 - state[node]
-        else:
-            # assuming all queries of type 1
-            # assert node == 1
-            if node == 1:
-                print(root_count)
-
-
-
-
-
-
-
+    
 
 for _ in range(int(input())): solve()
-
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀
@@ -123,9 +86,9 @@ for _ in range(int(input())): solve()
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# It is a tree
+# F. Rudolf and Imbalance
 # 3000, 256
 #
-# https://www.codechef.com/START124B/problems/HEALTHYTREE
-# Wednesday 06 March 2024 20:00:40 +0530
+# https://codeforces.com/contest/1941/problem/F
+# Monday 11 March 2024 20:06:57 +0530
 #

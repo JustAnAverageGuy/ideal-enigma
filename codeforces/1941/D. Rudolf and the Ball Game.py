@@ -2,7 +2,7 @@ from io import BytesIO, IOBase
 import os
 import sys
 
-BUFSIZE = 64
+BUFSIZE = 2048
 
 
 class FastIO(IOBase):
@@ -53,65 +53,36 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 def input(): return sys.stdin.readline().rstrip('\r\n')
 
 
-
-from collections import defaultdict
-
 def solve():
-    n,q = map(int,input().strip().split())
-    tree = defaultdict(list)
-    for i in range(n-1): # O(n)
-        u,v = map(int,input().strip().split())
-        tree[u].append(v)
-        tree[v].append(u)
-    children = defaultdict(list)
-    depths = [-1]*(n+1) # O(n)
-    depths[1] = 0
-    dfs = [(1,0)]
-
-    state = [0]*(n+1)
-    
-    while dfs:
-        node, parent = dfs.pop()
-        depths[node] = depths[parent] + 1
-
-        for i in tree[node]:
-            if i != parent:
-                children[node].append(i)
-                dfs.append((i, node))
-    # print(f'{children = }\n{depths = }\n{depthwise_wrt_root = }', file=sys.stderr)
-
-    sum_depths = defaultdict(int) 
-    for nodes in range(2,n+1): sum_depths[depths[nodes]] += state[nodes]
-    root_count = sum(i == 1 for i in sum_depths.values())
-
-    for _ in range(q):
-        t, node = map(int,input().strip().split())
-        if t == 2:
-            old = sum_depths[depths[node]]    
-            if state[node]:
-                # originally was 1, now will be off 
-                if old == 1: root_count -= 1
-                elif old == 2: root_count += 1
-
-            else:
-                # was 0, will be 1 now
-                if old == 0: root_count += 1
-                elif old == 1: root_count -= 1
-
-            sum_depths[depths[node]] += (1 - 2*state[node])
-            state[node] = 1 - state[node]
+    # print('-'*10, file=sys.stderr)
+    n,m,x = map(int,input().strip().split())
+    ball = [0]*n
+    ball[x-1] = 1
+    for i in range(m):
+        dist, dirn = input().strip().split()
+        dist = int(dist)
+        newballs = [0]*n
+        if dirn == '0':
+            # add dist 
+            for i in range(n): newballs[(i+dist)%n] |= ball[i]
+            # print(dirn, *newballs, file=sys.stderr)
+        elif dirn == '1':
+            # subtract dist 
+            for i in range(n): newballs[(i-dist)%n] |= ball[i]
+            # print(dirn, *newballs, file=sys.stderr)
         else:
-            # assuming all queries of type 1
-            # assert node == 1
-            if node == 1:
-                print(root_count)
+            # both add and subtract
+            for i in range(n): newballs[(i+dist)%n] |= ball[i]
+            # print(dirn, *newballs, file=sys.stderr)
+            for i in range(n): newballs[(i-dist)%n] |= ball[i]
+            # print(dirn, *newballs, file=sys.stderr)
+        ball = newballs[::]
+    print(sum(ball))
+    for k in range(n):
+        if ball[k]:
+            print(k+1, end= ' ')
 
-
-
-
-
-
-
+    
 
 for _ in range(int(input())): solve()
 
@@ -123,9 +94,9 @@ for _ in range(int(input())): solve()
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# It is a tree
-# 3000, 256
+# D. Rudolf and the Ball Game
+# 2000, 256
 #
-# https://www.codechef.com/START124B/problems/HEALTHYTREE
-# Wednesday 06 March 2024 20:00:40 +0530
+# https://codeforces.com/contest/1941/problem/D
+# Monday 11 March 2024 20:06:57 +0530
 #

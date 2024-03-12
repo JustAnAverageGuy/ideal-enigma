@@ -2,7 +2,7 @@ from io import BytesIO, IOBase
 import os
 import sys
 
-BUFSIZE = 64
+BUFSIZE = 8192
 
 
 class FastIO(IOBase):
@@ -53,65 +53,65 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 def input(): return sys.stdin.readline().rstrip('\r\n')
 
 
-
-from collections import defaultdict
+from collections import deque
 
 def solve():
-    n,q = map(int,input().strip().split())
-    tree = defaultdict(list)
-    for i in range(n-1): # O(n)
-        u,v = map(int,input().strip().split())
-        tree[u].append(v)
-        tree[v].append(u)
-    children = defaultdict(list)
-    depths = [-1]*(n+1) # O(n)
-    depths[1] = 0
-    dfs = [(1,0)]
+    n,m,k,d = map(int,input().strip().split())
 
-    state = [0]*(n+1)
+    # print('-'*10, file=sys.stderr)
+
+    min_cost_per_row = []
+    for i in range(n):
+        row = list(map(int,input().strip().split()))
+        dpqu = deque()
+
+        cnt_added = 0
+        cnt_removed = 0
+        
+        dpqu.append((1, cnt_added))
+        cnt_added += 1
+
+        for j in range(1,m):
+            # dp[j] = row[i]+1 + min(dp[j-1], dp[j-2], ..., dp[j-d])
+            dpj = row[j] + 1 + dpqu[0][0]
+            # print(dpj , end=' ', file=sys.stderr)
+            # print(dpqu, file=sys.stderr)
+            # now add this value to the dpqu
+            
+            if j == m-1:
+                min_cost_per_row.append(dpj)
+                break
+
+            while (dpqu and dpqu[-1][0] > dpj):
+                dpqu.pop()
+            dpqu.append((dpj, cnt_added))
+            cnt_added += 1
+
+            # remove the dp[j-d-1] from min pool etc 
+            if j >= d+1:
+                if dpqu and dpqu[0][1] == cnt_removed:
+                    dpqu.popleft()
+                cnt_removed += 1
+        # print('', file=sys.stderr)
+    # print(min_cost_per_row, file=sys.stderr)
+
+    pref = [0]
+    for i in min_cost_per_row:
+        pref.append(pref[-1] + i)
     
-    while dfs:
-        node, parent = dfs.pop()
-        depths[node] = depths[parent] + 1
+    mn = pref[k]
+    for r in range(k+1, n+1):
+        mn = min(pref[r]-pref[r-k], mn)
+    print(mn)
 
-        for i in tree[node]:
-            if i != parent:
-                children[node].append(i)
-                dfs.append((i, node))
-    # print(f'{children = }\n{depths = }\n{depthwise_wrt_root = }', file=sys.stderr)
 
-    sum_depths = defaultdict(int) 
-    for nodes in range(2,n+1): sum_depths[depths[nodes]] += state[nodes]
-    root_count = sum(i == 1 for i in sum_depths.values())
 
-    for _ in range(q):
-        t, node = map(int,input().strip().split())
-        if t == 2:
-            old = sum_depths[depths[node]]    
-            if state[node]:
-                # originally was 1, now will be off 
-                if old == 1: root_count -= 1
-                elif old == 2: root_count += 1
-
-            else:
-                # was 0, will be 1 now
-                if old == 0: root_count += 1
-                elif old == 1: root_count -= 1
-
-            sum_depths[depths[node]] += (1 - 2*state[node])
-            state[node] = 1 - state[node]
-        else:
-            # assuming all queries of type 1
-            # assert node == 1
-            if node == 1:
-                print(root_count)
+            
 
 
 
 
-
-
-
+    
 
 for _ in range(int(input())): solve()
 
@@ -123,9 +123,9 @@ for _ in range(int(input())): solve()
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# It is a tree
-# 3000, 256
+# E. Rudolf and k Bridges
+# 2000, 256
 #
-# https://www.codechef.com/START124B/problems/HEALTHYTREE
-# Wednesday 06 March 2024 20:00:40 +0530
+# https://codeforces.com/contest/1941/problem/E
+# Monday 11 March 2024 20:06:57 +0530
 #
