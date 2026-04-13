@@ -1,4 +1,11 @@
-
+# A1
+# A2
+# A3
+# A4
+# A5
+# C3
+# C4
+print("C2")
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀HELO⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
@@ -8,10 +15,10 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# A. Odd One Out
+# 1000, 256
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/contest/2214/problem/A
+# Wednesday 01 April 2026 20:05:20 +0530
 #
 # vim:fdm=marker:

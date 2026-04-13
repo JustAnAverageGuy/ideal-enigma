@@ -8,10 +8,9 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# D. Arboris Contractio
+# 2000, 256
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/contest/2131/problem/D
+# Thursday 21 August 2025 21:11:17 +0530
 #
-# vim:fdm=marker:

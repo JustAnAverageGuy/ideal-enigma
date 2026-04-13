@@ -8,10 +8,9 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# F2. Xor of Median (Hard Version)
+# 3000, 256
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/contest/2056/problem/F2
+# Friday 17 January 2025 20:05:33 +0530
 #
-# vim:fdm=marker:

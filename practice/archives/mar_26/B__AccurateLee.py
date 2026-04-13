@@ -8,10 +8,10 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# B. AccurateLee
+# 2000, 256
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/problemset/problem/1369/B
+# Sunday 01 March 2026 22:35:37 +0530
 #
 # vim:fdm=marker:

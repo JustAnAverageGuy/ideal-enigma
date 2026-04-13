@@ -8,10 +8,10 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# H. Double Vision
+# 1000, 256
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/contest/2214/problem/H
+# Wednesday 01 April 2026 20:05:21 +0530
 #
 # vim:fdm=marker:

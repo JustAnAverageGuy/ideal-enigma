@@ -8,10 +8,9 @@
 # ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
 # ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
 #
-# $(PROBLEM)
-# $(TIMELIM), $(MEMLIM)
+# D. Unique Median
+# 2000, 512
 #
-# $(URL)
-# $(DATE)
+# https://codeforces.com/contest/2056/problem/D
+# Friday 17 January 2025 20:05:32 +0530
 #
-# vim:fdm=marker:
